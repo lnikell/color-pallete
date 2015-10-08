@@ -20,10 +20,8 @@ class ColorPallete(sublime_plugin.TextCommand):
 
   def onClick(self, color):
     self.view.run_command("insert_color_data", {"args":{'color':color}})
+    self.view.hide_popup()
 
 class InsertColorData(sublime_plugin.TextCommand):
   def run(self, edit, args):
     self.view.insert(edit, self.view.sel()[0].begin(), args['color'])
-
-
-
